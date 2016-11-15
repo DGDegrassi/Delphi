@@ -18,15 +18,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Delphi</a>
+      <%= link_to 'Delphi', root_path, class: 'navbar-brand' %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <!-- took  class="active"> out from <li class="active"> to make link see through on the website.  it was creating a black box before --> 
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+        <li>
+          <%= link_to new_place_path do%>
+          <i class="glyphicon glyphicon-plus-sign"></i>
+          New Place
+          <% end %>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>

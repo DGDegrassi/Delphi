@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
 root 'places#index'
 
 #code that gets ruby to create a bunch of new URLs for us

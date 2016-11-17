@@ -33,6 +33,13 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+.field_with_errors {
+  color: #ff3333;
+  background-color: #FFEEEE;
+  border-radius: 3px;
+  padding:8px;
+}
 h1, h2, h3, h4, h5, h6 {
   margin:0;
   padding:0;

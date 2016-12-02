@@ -5,13 +5,15 @@
   <p><%= @place.description %></p>
 
   <% @place.photos.each do |photo| %>
-    <div class="place_photos img-responsive img-thumbnail">
-        <%= image_tag photo.picture %>
+    <div class="col-xs-6">
+      <%= image_tag photo.picture, class: "img-responsive" %>
       <div class="caption">
         <%= photo.caption %>
       </div>
+
     </div>
-    <div class="clear"></div>
+
+
   <% end %>  
 
 <div class="clear"></div>
@@ -110,9 +112,6 @@
   <br /><br /><br />
   <h1 class="pull-left">Comments</h1>
 </div>
-
-<div class="clear"></div>
-
 
 <div class="clear"></div>
 

@@ -4,6 +4,20 @@
   <br/><br/>
   <p><%= @place.description %></p>
 
+  <% @place.photos.each do |photo| %>
+    <div class="col-xs-1 col-sm-10 place_photos ">
+      <div class="img-responsive img-thumbnail">
+        <%= image_tag photo.picture %>
+      </div>
+      <div class="caption">
+        <%= photo.caption %>
+      </div>
+    </div>
+    <div class="clear"></div>
+  <% end %>  
+
+<div class="clear"></div>
+
   <% if @place.latitude.present? && @place.longitude.present? %>
     <script>
 
@@ -42,8 +56,6 @@
 
 <div class="clear"></div>
 
-
-
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -67,13 +79,43 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="myPictureModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Upload a Photo</h4>
+      </div>
+      <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+        <div class="modal-body">
+          <%= f.input :picture %>
+          <%= f.input :caption %>
+        </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+         <%= f.submit "Submit a Photo", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <div class="col-xs-10 col-xs-offset-1">
-  <h1 class="pull-left">Comments</h1>
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModal">
     Add a comment
   </button>
+  <button type="button" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myPictureModal">
+    Upload a Photo
+  </button>
+  <br /><br /><br />
+  <h1 class="pull-left">Comments</h1>
 </div>
+
+<div class="clear"></div>
+
+
 <div class="clear"></div>
 
 <% @place.comments.each do |comment| %>

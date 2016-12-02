@@ -5,7 +5,7 @@ root 'places#index'
 
 #code that gets ruby to create a bunch of new URLs for us
 resources :places do
-  resources :comments, only: :create
+  resources :comments, :photos, only: :create
 end
 
   # The priority is based upon order of creation: first created -> highest priority.

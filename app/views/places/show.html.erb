@@ -5,10 +5,8 @@
   <p><%= @place.description %></p>
 
   <% @place.photos.each do |photo| %>
-    <div class="col-xs-1 col-sm-10 place_photos ">
-      <div class="img-responsive img-thumbnail">
+    <div class="place_photos img-responsive img-thumbnail">
         <%= image_tag photo.picture %>
-      </div>
       <div class="caption">
         <%= photo.caption %>
       </div>

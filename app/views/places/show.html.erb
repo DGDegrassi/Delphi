@@ -110,7 +110,7 @@
     Upload a Photo
   </button>
   <br /><br /><br />
-  <% while @place.comments.present? %>
+  <% if @place.comments.present? %>
     <h1 class="pull-left">Comments</h1>
   <% end %>
 </div>
